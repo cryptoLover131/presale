@@ -1,0 +1,21 @@
+[features]
+seeds = false
+skip-lint = false
+[programs.devnet]
+token_presale = "9pnQTJxnSXjnv9x2WyvGYHiJXdmKbscsHHGG6mNsjxZq"
+[programs.mainnet]
+token_presale = "9pnQTJxnSXjnv9x2WyvGYHiJXdmKbscsHHGG6mNsjxZq"
+
+[registry]
+url = "https://api.apr.dev"
+
+# [provider]
+# cluster = "mainnet"
+# wallet = "/home/odmin/.config/solana/id.json"
+
+[provider]
+cluster = "https://rpc.shyft.to?api_key=9beIuTTaz6bp2Mhf" 
+wallet = "/home/gosu/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
