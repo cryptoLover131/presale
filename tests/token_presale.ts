@@ -16,8 +16,6 @@ import {
 } from '@metaplex-foundation/mpl-token-metadata';
 import { ASSOCIATED_PROGRAM_ID } from '@project-serum/anchor/dist/cjs/utils/token';
 
-// BAB metadata - https://gateway.pinata.cloud/ipfs/QmbYunxDx4cpsf8KWdmDyiS8E41HW1QdBDLww3HUAyUgPP?_gl=1*1fecquc*_ga*MjA5NDM1ODAyMy4xNjU4MzI5NzY1*_ga_5RMPXG14TE*MTY3NTQyNDMxNC40LjEuMTY3NTQyNTU2OS4zNS4wLjA.
-
 describe("token_presale", () => {
   // Configure the client to use the local cluster.
 
@@ -159,11 +157,6 @@ describe("token_presale", () => {
     const presaleAccounts = await program.account.presaleDetails.all();
     const presaleAccount = await program.account.presaleDetails.fetch(presalePDA);
     const allAccounts = await program.account;
-
-    // const todoAccounts = await program.account.todoAccount.all([authorFilter(publicKey.toString())])
-
-    // const incompleteTodos = useMemo(() => todos.filter((todo) => !todo.account.marked), [todos])
-    // const completedTodos = useMemo(() => todos.filter((todo) => todo.account.marked), [todos])
 
     console.log(walletAccounts);
     console.log(presaleAccounts);
