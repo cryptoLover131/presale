@@ -16,8 +16,6 @@ import {
 } from '@metaplex-foundation/mpl-token-metadata';
 import { ASSOCIATED_PROGRAM_ID } from '@project-serum/anchor/dist/cjs/utils/token';
 
-// BAB metadata - https://gateway.pinata.cloud/ipfs/QmbYunxDx4cpsf8KWdmDyiS8E41HW1QdBDLww3HUAyUgPP?_gl=1*1fecquc*_ga*MjA5NDM1ODAyMy4xNjU4MzI5NzY1*_ga_5RMPXG14TE*MTY3NTQyNDMxNC40LjEuMTY3NTQyNTU2OS4zNS4wLjA.
-
 describe("token_presale", () => {
   // Configure the client to use the local cluster.
 
@@ -160,79 +158,12 @@ describe("token_presale", () => {
     const presaleAccount = await program.account.presaleDetails.fetch(presalePDA);
     const allAccounts = await program.account;
 
-    // const todoAccounts = await program.account.todoAccount.all([authorFilter(publicKey.toString())])
-
-    // const incompleteTodos = useMemo(() => todos.filter((todo) => !todo.account.marked), [todos])
-    // const completedTodos = useMemo(() => todos.filter((todo) => todo.account.marked), [todos])
-
     console.log(walletAccounts);
     console.log(presaleAccounts);
     console.log(allAccounts);
 
   });
 
-  /*
-
-  it("Create an SPL Token!", async () => {
-
-    const metadataAddress = (await anchor.web3.PublicKey.findProgramAddress(
-      [
-        Buffer.from("metadata"),
-        TOKEN_METADATA_PROGRAM_ID.toBuffer(),
-        mintKeypair.publicKey.toBuffer(),
-      ],
-      TOKEN_METADATA_PROGRAM_ID
-    ))[0];
-
-    const sx = await program.methods.createToken(
-      quoteTokenTitle, quoteTokenSymbol, quoteTokenUri
-    )
-      .accounts({
-        metadataAccount: metadataAddress,
-        mintAccount: mintKeypair.publicKey,
-        mintAuthority: payer.publicKey,
-        payer: payer.publicKey,
-        rent: anchor.web3.SYSVAR_RENT_PUBKEY,
-        systemProgram: anchor.web3.SystemProgram.programId,
-        tokenProgram: anchor.utils.token.TOKEN_PROGRAM_ID,
-        tokenMetadataProgram: TOKEN_METADATA_PROGRAM_ID,
-      })
-      .signers([mintKeypair, payer.payer])
-      .rpc();
-
-    console.log("Success!");
-        console.log(`   Mint Address: ${mintKeypair.publicKey}`);
-        console.log(`   Tx Signature: ${sx}`);
-  });
-
-  it("Mint some tokens to your wallet!", async () => {
-
-    const associatedTokenAccountAddress = await anchor.utils.token.associatedAddress({
-      mint: mintKeypair.publicKey,
-      owner: payer.publicKey,
-    });
-
-    const sx = await program.methods.mintTo(
-      new anchor.BN(150)
-    )
-      .accounts({
-        associatedTokenAccount: associatedTokenAccountAddress,
-        mintAccount: mintKeypair.publicKey,
-        mintAuthority: payer.publicKey,
-        payer: payer.publicKey,
-        rent: anchor.web3.SYSVAR_RENT_PUBKEY,
-        systemProgram: anchor.web3.SystemProgram.programId,
-        tokenProgram: anchor.utils.token.TOKEN_PROGRAM_ID,
-        associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
-      })
-      .signers([payer.payer])
-      .rpc();
-
-    console.log("Success!");
-        console.log(`   Mint Address: ${mintKeypair.publicKey}`);
-        console.log(`   Tx Signature: ${sx}`);
-  });
-  */
 
   it("Mint 1M BAB tokens to your wallet!", async () => {
 
@@ -443,43 +374,6 @@ describe("token_presale", () => {
     console.log("Success!");
     console.log(`   Tx Signature: ${sx}`);
   });
-
-  /*
-
-  it("Transfer some tokens to another wallet!", async () => {
-
-    const fromAssociatedTokenAccountAddress = await anchor.utils.token.associatedAddress({
-      mint: bABTokenPubkey,
-      owner: payer.publicKey,
-    });
-    const toAssociatedTokenAccountAddress = await anchor.utils.token.associatedAddress({
-      mint: bABTokenPubkey,
-      owner: recipientWallet.publicKey,
-    });
-
-    const sx = await program.methods.transferTokens(
-      new anchor.BN(150 * MINT_DECIMALS)
-    )
-      .accounts({
-        mintAccount: bABTokenPubkey,
-        fromAssociatedTokenAccount: fromAssociatedTokenAccountAddress,
-        owner: payer.publicKey,
-        toAssociatedTokenAccount: toAssociatedTokenAccountAddress,
-        recipient: recipientWallet.publicKey,
-        payer: payer.publicKey,
-        rent: anchor.web3.SYSVAR_RENT_PUBKEY,
-        systemProgram: anchor.web3.SystemProgram.programId,
-        tokenProgram: anchor.utils.token.TOKEN_PROGRAM_ID,
-        associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
-      })
-      .signers([payer.payer])
-      .rpc();
-
-    console.log("Success!");
-        console.log(`   Mint Address: ${bABTokenPubkey}`);
-        console.log(`   Tx Signature: ${sx}`);
-  });
-  */
 
 
 
