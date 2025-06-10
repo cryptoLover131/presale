@@ -4,9 +4,9 @@ use anchor_lang::prelude::*;
 #[derive(Default)]
 pub struct UserInfo {
     // Buy quote amount
-    pub buy_quote_amount: u64,
+    // pub buy_quote_amount: u64,
     // Buy token amount
-    pub buy_token_amount: u64,
+    // pub buy_token_amount: u64,
     // Buy time
     pub buy_time: u64,
     // claim quote amount
