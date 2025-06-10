@@ -437,43 +437,6 @@ describe("token_presale", () => {
     console.log(`   Tx Signature: ${sx}`);
   });
 
-  /*
-
-  it("Transfer some tokens to another wallet!", async () => {
-
-    const fromAssociatedTokenAccountAddress = await anchor.utils.token.associatedAddress({
-      mint: bABTokenPubkey,
-      owner: payer.publicKey,
-    });
-    const toAssociatedTokenAccountAddress = await anchor.utils.token.associatedAddress({
-      mint: bABTokenPubkey,
-      owner: recipientWallet.publicKey,
-    });
-
-    const sx = await program.methods.transferTokens(
-      new anchor.BN(150 * MINT_DECIMALS)
-    )
-      .accounts({
-        mintAccount: bABTokenPubkey,
-        fromAssociatedTokenAccount: fromAssociatedTokenAccountAddress,
-        owner: payer.publicKey,
-        toAssociatedTokenAccount: toAssociatedTokenAccountAddress,
-        recipient: recipientWallet.publicKey,
-        payer: payer.publicKey,
-        rent: anchor.web3.SYSVAR_RENT_PUBKEY,
-        systemProgram: anchor.web3.SystemProgram.programId,
-        tokenProgram: anchor.utils.token.TOKEN_PROGRAM_ID,
-        associatedTokenProgram: ASSOCIATED_PROGRAM_ID,
-      })
-      .signers([payer.payer])
-      .rpc();
-
-    console.log("Success!");
-        console.log(`   Mint Address: ${bABTokenPubkey}`);
-        console.log(`   Tx Signature: ${sx}`);
-  });
-  */
-
 
 
 
